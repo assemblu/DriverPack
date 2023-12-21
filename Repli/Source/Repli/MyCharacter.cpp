@@ -16,7 +16,7 @@ AMyCharacter::AMyCharacter()
 	SpringArm->SetupAttachment(RootComponent);
 	Camera->SetupAttachment(SpringArm);
 	Camera->bUsePawnControlRotation = true;
-
+	SpringArm->TargetArmLength = 400.f;
 }
 
 // Called when the game starts or when spawned
@@ -33,10 +33,29 @@ void AMyCharacter::Tick(float DeltaTime)
 
 }
 
+void AMyCharacter::MoveForward(float Value)
+{
+	if (Controller && Value != 0.f)
+	{
+		AddMovementInput(GetActorForwardVector(), Value);
+	}
+}
+
+void AMyCharacter::MoveRight(float Value)
+{
+	if (Controller && Value != 0.f)
+  {
+    AddMovementInput(GetActorRightVector(), Value);
+  }
+}
+
+
 // Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+	PlayerInputComponent->BindAxis(FName("MoveForward"),this,&AMyCharacter::MoveForward);
+  PlayerInputComponent->BindAxis(FName("MoveRight"), this, &AMyCharacter::MoveRight);
 
 }
 
