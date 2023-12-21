@@ -49,6 +49,21 @@ void AMyCharacter::MoveRight(float Value)
   }
 }
 
+void AMyCharacter::Turn(float Value)
+{
+	if (Controller && Value != 0.f)
+	{
+    AddControllerYawInput(Value);
+  }
+}
+
+void AMyCharacter::LookUp(float Value)
+{
+	if (Controller && Value != 0.f)
+	{
+    AddControllerPitchInput(Value);
+  }
+}
 
 // Called to bind functionality to input
 void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -56,6 +71,7 @@ void AMyCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent->BindAxis(FName("MoveForward"),this,&AMyCharacter::MoveForward);
   PlayerInputComponent->BindAxis(FName("MoveRight"), this, &AMyCharacter::MoveRight);
-
+	PlayerInputComponent->BindAxis(FName("Turn"), this, &AMyCharacter::Turn);
+	PlayerInputComponent->BindAxis(FName("LookUp"), this, &AMyCharacter::LookUp);
 }
 
