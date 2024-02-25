@@ -1,0 +1,114 @@
+[
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/Hourportal.Build.cs",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/Hourportal.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/Hourportal.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/HourportalCharacter.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/HourportalCharacter.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/HourportalGameMode.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/HourportalGameMode.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/RewindComponent.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/RewindComponent.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/TP_ThirdPerson/TP_ThirdPerson.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/TP_ThirdPerson/TP_ThirdPersonCharacter.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/TP_ThirdPerson/TP_ThirdPersonCharacter.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/TP_ThirdPerson/TP_ThirdPersonGameMode.cpp",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	},
+	{
+		"file": "/Users/emir/_dev/Gard/Source/Hourportal/TP_ThirdPerson/TP_ThirdPersonGameMode.h",
+		"arguments": [
+			"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++",
+			"@/Users/emir/_dev/Gard/.vscode/compileCommands_Hourportal/Hourportal.1.rsp"
+		],
+		"directory": "/Users/Shared/Epic Games/UE_5.3/Engine/Source"
+	}
+]
