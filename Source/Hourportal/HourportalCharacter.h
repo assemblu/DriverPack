@@ -45,10 +45,42 @@ class AHourportalCharacter : public ACharacter
 	UInputAction *LookAction;
 
 public:
+	// variables
+
+	// fires Rewind event
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsRewind = false;
+
+	// when enabed, frames will be recorded
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsRecordFrames = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float RecordFrameSpeed = 0.2f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float RewinddFrameSpeed = 0;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int StateFrameSize = 1024;
+
+	int SFInsertIndex = 0;
+	// int SFReadIndex = 0;
+
+	// rewind frames
+	TArray<FVector> StateFrames;
+
+public:
+	// functions
+
 	AHourportalCharacter();
 
+	// rewind event to be triggered by blueprints
 	UFUNCTION(BlueprintCallable)
-	void RewindTest();
+	void ERewind();
+
+	UFUNCTION(BlueprintCallable)
+	void ERecord(FVector Frame);
 
 protected:
 	/** Called for movement input */
