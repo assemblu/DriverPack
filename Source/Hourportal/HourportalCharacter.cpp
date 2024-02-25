@@ -148,9 +148,9 @@ FVector AHourportalCharacter::ERewind()
 
 void AHourportalCharacter::ERecord(FVector Frame)
 {
-	if (this->SFInsertIndex < StateFrameSize)
+	if (this->SFInsertIndex < this->StateFrameSize)
 	{
-		StateFrames.Add(Frame);
+		StateFrames.Push(Frame);
 		SFInsertIndex++;
 	}
 
