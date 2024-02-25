@@ -77,7 +77,7 @@ public:
 
 	// rewind event to be triggered by blueprints
 	UFUNCTION(BlueprintCallable)
-	void ERewind();
+	FVector ERewind();
 
 	UFUNCTION(BlueprintCallable)
 	void ERecord(FVector Frame);

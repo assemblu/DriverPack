@@ -130,11 +130,20 @@ void AHourportalCharacter::Look(const FInputActionValue &Value)
 	}
 }
 
-void AHourportalCharacter::ERewind()
+FVector AHourportalCharacter::ERewind()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ERewind START"));
+	if (SFInsertIndex > 0)
+	{
+		SFInsertIndex--;
+	}
+	else
+	{
+		this->bIsRewind = false;
+	}
 
-	UE_LOG(LogTemp, Warning, TEXT("ERewind FINISH"));
+	FVector State = StateFrames[SFInsertIndex];
+	UE_LOG(LogTemp, Warning, TEXT("ERewind FRAME"));
+	return State;
 }
 
 void AHourportalCharacter::ERecord(FVector Frame)
@@ -142,6 +151,7 @@ void AHourportalCharacter::ERecord(FVector Frame)
 	if (this->SFInsertIndex < StateFrameSize)
 	{
 		StateFrames.Add(Frame);
+		SFInsertIndex++;
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("ERecord INSERT"));
