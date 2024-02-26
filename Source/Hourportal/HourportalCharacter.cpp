@@ -130,51 +130,43 @@ void AHourportalCharacter::Look(const FInputActionValue &Value)
 	}
 }
 
-FVector AHourportalCharacter::ERewind()
+void AHourportalCharacter::ERewind()
 {
-	if (this->StateIndex > 0)
+	if (!this->StateFrames.IsEmpty())
 	{
-		this->StateIndex--;
-    UE_LOG(LogTemp, Warning, TEXT("ERewind --"));
+		// get previous location
+		FVector PreviousLocation = this->StateFrames.GetHead()->GetValue();
+		SetActorLocation(PreviousLocation);
+
+		// pop rewinded location
+		this->StateFrames.RemoveNode(this->StateFrames.GetHead());
 	}
 	else
 	{
 		this->bIsRewinding = false;
-    UE_LOG(LogTemp, Warning, TEXT("ERewind = false"));
+		UE_LOG(LogTemp, Warning, TEXT("Rewind finished"));
 	}
-
-	FVector State = this->StateFrames[StateIndex];
-	UE_LOG(LogTemp, Warning, TEXT("ERewind FRAME"));
-	return State;
 }
 
 void AHourportalCharacter::ERecord()
 {
-	if (this->StateIndex < this->StateFrameSize)
+	FVector CurrentLocation = GetActorLocation();
+	if (!CurrentLocation.IsZero())
 	{
-		FVector CurrentLocation = GetActorLocation();
-		if (!CurrentLocation.IsZero()) {
-			this->StateFrames.Push(CurrentLocation);
-			this->StateIndex++;
-			UE_LOG(LogTemp, Warning, TEXT("ERecord ++"));
+		this->StateFrames.AddHead(CurrentLocation);
+		if (this->StateFrameCount >= this->StateFrameSize)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Push and pop"));
+			this->StateFrames.RemoveNode(this->StateFrames.GetTail());
 		}
-		else {
-			UE_LOG(LogTemp, Warning, TEXT("ERecord NULL"));
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Push only"));
+			StateFrameCount++;
 		}
 	}
-	else
-	{
-		this->bIsRecordingFrames = false;
-	}
-
-	UE_LOG(LogTemp, Warning, TEXT("ERecord INSERT"));
 }
 
 void AHourportalCharacter::LogPrinter()
 {
-  if (this->bIsRecordingFrames)
-    UE_LOG(LogTemp, Warning, TEXT("Recording enabled"))
-  
-  if (this->bIsRewinding)
-    UE_LOG(LogTemp, Warning, TEXT("Rewinding enabled"))
 }

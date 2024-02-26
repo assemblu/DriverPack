@@ -62,12 +62,12 @@ public:
 	float RewindFrameSpeed = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int StateFrameSize = 1024;
+	int StateFrameSize = 10;
 
-	int StateIndex = 0;
+	int StateFrameCount = 0;
 
 	// rewind frames
-	TArray<FVector> StateFrames;
+	TDoubleLinkedList<FVector> StateFrames;
 
 public:
 	// functions
@@ -76,7 +76,7 @@ public:
 
 	// rewind event to be triggered by blueprints
 	UFUNCTION(BlueprintCallable)
-	FVector ERewind();
+	void ERewind();
 
 	UFUNCTION(BlueprintCallable)
 	void ERecord();
