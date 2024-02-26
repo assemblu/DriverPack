@@ -132,27 +132,49 @@ void AHourportalCharacter::Look(const FInputActionValue &Value)
 
 FVector AHourportalCharacter::ERewind()
 {
-	if (SFInsertIndex > 0)
+	if (this->StateIndex > 0)
 	{
-		SFInsertIndex--;
+		this->StateIndex--;
+    UE_LOG(LogTemp, Warning, TEXT("ERewind --"));
 	}
 	else
 	{
-		this->bIsRewind = false;
+		this->bIsRewinding = false;
+    UE_LOG(LogTemp, Warning, TEXT("ERewind = false"));
 	}
 
-	FVector State = StateFrames[SFInsertIndex];
+	FVector State = this->StateFrames[StateIndex];
 	UE_LOG(LogTemp, Warning, TEXT("ERewind FRAME"));
 	return State;
 }
 
-void AHourportalCharacter::ERecord(FVector Frame)
+void AHourportalCharacter::ERecord()
 {
-	if (this->SFInsertIndex < this->StateFrameSize)
+	if (this->StateIndex < this->StateFrameSize)
 	{
-		StateFrames.Push(Frame);
-		SFInsertIndex++;
+		FVector CurrentLocation = GetActorLocation();
+		if (!CurrentLocation.IsZero()) {
+			this->StateFrames.Push(CurrentLocation);
+			this->StateIndex++;
+			UE_LOG(LogTemp, Warning, TEXT("ERecord ++"));
+		}
+		else {
+			UE_LOG(LogTemp, Warning, TEXT("ERecord NULL"));
+		}
+	}
+	else
+	{
+		this->bIsRecordingFrames = false;
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("ERecord INSERT"));
+}
+
+void AHourportalCharacter::LogPrinter()
+{
+  if (this->bIsRecordingFrames)
+    UE_LOG(LogTemp, Warning, TEXT("Recording enabled"))
+  
+  if (this->bIsRewinding)
+    UE_LOG(LogTemp, Warning, TEXT("Rewinding enabled"))
 }
