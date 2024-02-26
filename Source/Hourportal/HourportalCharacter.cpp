@@ -136,16 +136,18 @@ void AHourportalCharacter::ERewind()
 	{
 		// get previous location
 		FVector PreviousLocation = this->StateFrames.GetHead()->GetValue();
-		SetActorLocation(PreviousLocation);
+		SetActorLocation(PreviousLocation, true);
 
 		// pop rewinded location
 		this->StateFrames.RemoveNode(this->StateFrames.GetHead());
+		UE_LOG(LogTemp, Warning, TEXT("Rewind is complete"));
 	}
 	else
 	{
 		this->bIsRewinding = false;
 		UE_LOG(LogTemp, Warning, TEXT("Rewind finished"));
 	}
+  UE_LOG(LogTemp, Warning, TEXT("Rewind"));
 }
 
 void AHourportalCharacter::ERecord()
@@ -154,15 +156,14 @@ void AHourportalCharacter::ERecord()
 	if (!CurrentLocation.IsZero())
 	{
 		this->StateFrames.AddHead(CurrentLocation);
-		if (this->StateFrameCount >= this->StateFrameSize)
+		if (this->StateFrames.Num() >= this->StateFrameSize)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Push and pop"));
+			UE_LOG(LogTemp, Warning, TEXT("Pop oldest frame"));
 			this->StateFrames.RemoveNode(this->StateFrames.GetTail());
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Push only"));
-			StateFrameCount++;
+			UE_LOG(LogTemp, Warning, TEXT("Add frame"));
 		}
 	}
 }

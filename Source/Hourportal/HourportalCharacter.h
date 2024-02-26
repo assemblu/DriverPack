@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Containers/RingBuffer.h"
 #include "Logging/LogMacros.h"
 #include "HourportalCharacter.generated.h"
 
@@ -62,7 +63,7 @@ public:
 	float RewindFrameSpeed = 0;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int StateFrameSize = 10;
+	int StateFrameSize = 1000000;
 
 	int StateFrameCount = 0;
 
