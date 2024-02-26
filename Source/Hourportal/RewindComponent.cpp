@@ -32,3 +32,41 @@ void URewindComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	// ...
 }
 
+
+void URewindComponent::ERewind()
+{
+	if (!this->StateFrames.IsEmpty())
+	{
+		// get previous location
+		FVector PreviousLocation = this->StateFrames.GetHead()->GetValue();
+		GetOwner()->SetActorLocation(PreviousLocation, true);
+
+		// pop rewinded location
+		this->StateFrames.RemoveNode(this->StateFrames.GetHead());
+		UE_LOG(LogTemp, Warning, TEXT("Rewind is complete"));
+	}
+	else
+	{
+		this->bIsRewinding = false;
+		UE_LOG(LogTemp, Warning, TEXT("Rewind finished"));
+	}
+	UE_LOG(LogTemp, Warning, TEXT("Rewind"));
+}
+
+void URewindComponent::ERecord()
+{
+	FVector CurrentLocation = GetOwner()->GetActorLocation();
+	if (!CurrentLocation.IsZero())
+	{
+		this->StateFrames.AddHead(CurrentLocation);
+		if (this->StateFrames.Num() >= this->StateFrameSize)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Pop oldest frame"));
+			this->StateFrames.RemoveNode(this->StateFrames.GetTail());
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Add frame"));
+		}
+	}
+}
